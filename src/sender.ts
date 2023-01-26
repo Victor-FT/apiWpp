@@ -23,24 +23,28 @@ class Sender {
         this.initialize()
     }
 
-    async sendText(to: string, body: string) {
+    async sendText(to: string, name: string) {
         // 5531992088778@c.us
         try {
-
+            
+            console.log(!isValidNumber(to, "BR"));
             if(!isValidNumber(to, "BR")) throw new Error('Este número é inválido.')
             
             let phoneNumber = parsePhoneNumber(to, "BR")
             .format("E.164")
             .replace('+',"")
+            console.log(phoneNumber);
             
             phoneNumber = phoneNumber.includes("@c.us") 
             ? phoneNumber 
             : `${phoneNumber}@c.us`
             
+            const body = `Opa, é o ${name}? se sim, aqui vai o link da página com a notícia completa https://artigotas.fun/noticia/`
+            
             await this.client.sendText(phoneNumber, body)
             
         } catch (err) {
-            return err;
+            return console.log(err);
         }
     }
 
