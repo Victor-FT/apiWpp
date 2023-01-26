@@ -39,7 +39,7 @@ class Sender {
             ? phoneNumber 
             : `${phoneNumber}@c.us`
             
-            const body = `Opa, é o ${name}? se sim, aqui vai o link da página com a notícia completa https://artigotas.fun/noticia/`
+            const body = `Opa, é ${name}? se sim, aqui vai o link da página com a notícia completa https://artigotas.fun/noticia/`
             
             await this.client.sendText(phoneNumber, body)
             
