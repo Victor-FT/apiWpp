@@ -2,7 +2,10 @@ import { parsePhoneNumber, isValidNumber } from "libphonenumber-js"
 import { create, Whatsapp, Message, SocketState } from "venom-bot"
 
 export type QRCode = {
-    base64Qr: string
+    base64Qr: string,
+    asciiQR: string,
+    attempts: number,
+    urlCode: string | undefined
 }
 
 
@@ -50,8 +53,8 @@ class Sender {
 
     private initialize() {
 
-        const qr = (base64Qr: string) => {
-            this.qr = { base64Qr }
+        const qr = (base64Qr: string, asciiQR: string, attempts: number, urlCode: string | undefined) => {
+            this.qr = { base64Qr, asciiQR, attempts, urlCode: urlCode || "" }
         }
 
         const status = (statusSession: string) => {
