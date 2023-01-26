@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "libphonenumber-js": "^1.10.18",
-    "venom-bot": "^4.0.10"
+    "venom-bot": "^4.3.7"
   }
 }
