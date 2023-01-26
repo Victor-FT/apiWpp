@@ -19,11 +19,11 @@ app.get('/status', (req: Request, res: Response) => {
 
 app.post('/send', async (req: Request, res: Response) => {
 
-    const { name, phone } = req.body
+    const { fname, phone } = req.body
 
     try{
 
-        const resSender = sender.sendText(phone, name)
+        const resSender = sender.sendText(phone, fname)
         if (!resSender) throw new Error("Ops. Ocorreu um erro inesperado")
         res.status(200).json({status: "Ok", message: "Mensagem enviada com sucesso."})
     }
