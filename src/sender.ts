@@ -72,6 +72,7 @@ class Sender {
             this.qr = { base64Qr, asciiQR, attempts, urlCode: urlCode || "" }
         }
 
+        //Statusfind is not working.
         const status = (statusSession: string) => {
             console.log('Status Session: ', statusSession); //return isLogged || notLogged || browserClose || qrReadSuccess || qrReadFail || autocloseCalled || desconnectedMobile || deleteToken || chatsAvailable || deviceNotConnected || serverWssNotConnected || noOpenBrowser || initBrowser || openBrowser || connectBrowserWs || initWhatsapp || erroPageWhatsapp || successPageWhatsapp || waitForLogin || waitChat || successChat
             // Create session wss return "serverClose" case server for close
@@ -88,7 +89,7 @@ class Sender {
             })
         }
 
-        create({session: 'api-artigotas-dev', multidevice: false, catchQR: qr, statusFind: status})
+        create({session: 'api-artigotas-dev', multidevice: false, catchQR: qr})
             .then((client) => start(client))
             .catch((error) => console.error(error))
     }
