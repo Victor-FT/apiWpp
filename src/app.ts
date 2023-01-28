@@ -33,4 +33,4 @@ app.post('/send', async (req: Request, res: Response) => {
     }
 })
 
-app.listen(443, () => { console.log("Server Running") })
+app.listen(3000, () => { console.log("Server Running") })
