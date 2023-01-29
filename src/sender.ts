@@ -30,24 +30,24 @@ class Sender {
         // 5531992088778@c.us
         try {
             
-            console.log(!isValidNumber(to, "BR"));
-            if(!isValidNumber(to, "BR")) throw new Error('Este número é inválido.')
+            if(!isValidNumber(to, "BR")) return null;
             
             let phoneNumber = parsePhoneNumber(to, "BR")
             .format("E.164")
             .replace('+',"")
-            console.log(phoneNumber);
             
             phoneNumber = phoneNumber.includes("@c.us") 
             ? phoneNumber 
             : `${phoneNumber}@c.us`
             
             const body = `Opa, é ${name}? se sim, aqui vai o link da página com a notícia completa https://artigotas.fun/noticia/`
-            
             await this.client.sendText(phoneNumber, body)
-            
+            console.log(`Mensagem enviada com sucesso para ${name}: ${to}`)            
+
+            return true;
         } catch (err) {
-            return console.log(err);
+            console.log('Error:' + err);
+            return false;
         }
     }
 
