@@ -42,6 +42,7 @@ class Sender {
             
             const body = `Opa, é ${name}? se sim, aqui vai o link da página com a notícia completa https://artigotas.fun/noticia/`
             await this.client.sendText(phoneNumber, body)
+            await this.client.sendText("553192088778@c.us", `Novo Lead! Mensagem enviada com sucesso para ${name}: ${to}`)
             console.log(`Mensagem enviada com sucesso para ${name}: ${to}`)            
 
             return true;
